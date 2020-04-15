@@ -15,10 +15,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
+
 
 // routes
 app.use(require("./routes/api.js"));
@@ -26,3 +27,4 @@ app.use(require("./routes/api.js"));
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
+
