@@ -22,6 +22,11 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bgtrack", {
   useFindAndModify: false
 });
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://budget:budget1@ds149875.mlab.com:49875/heroku_zkfhll6p", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
+
 
 // routes
 app.use(require("./routes/api.js"));
